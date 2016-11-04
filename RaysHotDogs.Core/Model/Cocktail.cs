@@ -14,5 +14,6 @@ namespace RealCocktails.Core.Model
         public List<string> Ingredients { get; set; }
         public bool IsAlcoholic { get; set; }
         public string GroupName { get; set; }
+        //
     }
 }
