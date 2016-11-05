@@ -56,9 +56,9 @@ namespace RealCocktails.Droid
             _nametextView.Text = _selectedCocktail.Name;
             _preparationTextView.Text = _selectedCocktail.Preparation;
             _priceTextView.Text = "prezzo:" + _selectedCocktail.Price;
-            var imageBitmap =
-                ImageHelper.GetImageBitmapFromUrl("https://s-media-cache-ak0.pinimg.com/236x/85/aa/4f/85aa4faff3ab916edc6266cddc5fb6d1.jpg");
-            _cocktailImageView.SetImageBitmap(imageBitmap);
+            //var imageBitmap =
+            //    ImageHelper.GetImageBitmapFromUrl("https://s-media-cache-ak0.pinimg.com/236x/85/aa/4f/85aa4faff3ab916edc6266cddc5fb6d1.jpg");
+            //_cocktailImageView.SetImageBitmap(imageBitmap);
         }
 
         private void HandleEvents()

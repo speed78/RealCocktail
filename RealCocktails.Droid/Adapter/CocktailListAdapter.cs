@@ -27,7 +27,7 @@ namespace RealCocktails.Droid.Adapter
         public override View GetView(int position, View convertView, ViewGroup parent)
         {
             var item = _items[position];
-            var imageBitmap = ImageHelper.GetImageBitmapFromUrl("https://s-media-cache-ak0.pinimg.com/236x/85/aa/4f/85aa4faff3ab916edc6266cddc5fb6d1.jpg"); ;
+            //var imageBitmap = ImageHelper.GetImageBitmapFromUrl("https://s-media-cache-ak0.pinimg.com/236x/85/aa/4f/85aa4faff3ab916edc6266cddc5fb6d1.jpg"); ;
 
             if (convertView == null)
             {
@@ -35,7 +35,7 @@ namespace RealCocktails.Droid.Adapter
             }
             convertView.FindViewById<TextView>(Resource.Id.cocktailNameTextView).Text = item.Name;
             convertView.FindViewById<TextView>(Resource.Id.cocktailPrepationTextView).Text = item.Preparation;
-            convertView.FindViewById<ImageView>(Resource.Id.cocktailImageView).SetImageBitmap(imageBitmap);
+            //convertView.FindViewById<ImageView>(Resource.Id.cocktailImageView).SetImageBitmap(imageBitmap);
             return convertView;
         }
 
