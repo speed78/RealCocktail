@@ -54,7 +54,8 @@
     <Compile Include="Adapter\CocktailListAdapter.cs" />
     <Compile Include="CocktailDetailActivity.cs" />
     <Compile Include="CocktailMenuActivity.cs" />
-    <Compile Include="MainActivity.cs" />
+    <Compile Include="Fragments\BaseFragment.cs" />
+    <Compile Include="Fragments\FavoriteCocktailFragment.cs" />
     <Compile Include="MenuActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -79,9 +80,7 @@
     <AndroidResource Include="Resources\layout\MenuView.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\layout\Main.axml">
+    <AndroidResource Include="Resources\layout\FavoriteCocktailFragment.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
@@ -101,6 +100,9 @@
       <Project>{48e926d2-9cf9-44c1-b867-26b562879ab0}</Project>
       <Name>RealCocktails.Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\allCoctails.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

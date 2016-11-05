@@ -12,6 +12,7 @@ using Android.Widget;
 using RealCocktails.Core.Model;
 using RealCocktails.Core.Service;
 using RealCocktails.Droid.Adapter;
+using RealCocktails.Droid.Fragments;
 
 namespace RealCocktails.Droid
 {
@@ -26,40 +27,43 @@ namespace RealCocktails.Droid
             base.OnCreate(savedInstanceState);
 
             SetContentView(Resource.Layout.CocktailsMenuView);
-            _cocktailListView = FindViewById<ListView>(Resource.Id.cocktailListView);
-            _dataService = new CocktailsDataService();
-            _allCocktails = _dataService.GetAllCocktails();
-            _cocktailListView.Adapter = new CocktailListAdapter(this, _allCocktails);
-            _cocktailListView.ItemClick += CocktailListViewOnItemClick;
-        }
-
-        private void CocktailListViewOnItemClick(object sender, AdapterView.ItemClickEventArgs itemClickEventArgs)
-        {
-            Cocktail cocktail = _allCocktails[itemClickEventArgs.Position];
-            Intent intent = new Intent();
-            intent.SetClass(this, typeof(CocktailDetailActivity));
-            intent.PutExtra("selectedId", cocktail.Id);
-            StartActivityForResult(intent, 100);
+            ActionBar.NavigationMode = ActionBarNavigationMode.Tabs;
+            AddTab("tutti", Resource.Drawable.allCoctails, new FavoriteCocktailFragment());
+           // AddTab("Preveriti", Resource.Drawable.allCoctails, new FavoriteCocktailFragment());
 
 
         }
 
-        protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
+        private void AddTab(string tabText, int iconResourceId, Fragment view)
         {
-            base.OnActivityResult(requestCode, resultCode, data);
-            if (resultCode == Result.Ok && requestCode == 100)
+            var tab = this.ActionBar.NewTab();
+            tab.SetText(tabText);
+            tab.SetIcon(iconResourceId);
+            tab.TabSelected += delegate (object sender, ActionBar.TabEventArgs e)
             {
-                var selectedCocktail = _dataService.GetCocktail(data.GetIntExtra("selectedId", 0));
+                var fragment = this.FragmentManager.FindFragmentById(Resource.Id.fragmentContainer);
+                if (fragment != null)
+                {
+                    e.FragmentTransaction.Remove(fragment);
+                }
+                e.FragmentTransaction.Add(Resource.Id.fragmentContainer, view);
+            };
+            tab.TabUnselected += delegate (object sender, ActionBar.TabEventArgs e)
+            {
 
-                var amount = data.GetIntExtra("amount", 0);
-                var quantity = data.GetIntExtra("quantity", 0);
-                var dialog = new AlertDialog.Builder(this);
-                dialog.SetTitle("conferma");
-                dialog.SetMessage(String.Format("hai ordinato N° {0} {1} per un tottale di € {2}", quantity, selectedCocktail.Name, amount));
-                dialog.Show();
-
-
-            }
+                e.FragmentTransaction.Remove(view);
+            };
+            this.ActionBar.AddTab(tab);
         }
+
+        private void Tab_TabSelected(object sender, ActionBar.TabEventArgs e)
+        {
+
+        }
+
+
+
+
+       
     }
 }
