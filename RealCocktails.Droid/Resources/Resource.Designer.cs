@@ -63,11 +63,14 @@ namespace RealCocktails.Droid
 		public partial class Id
 		{
 			
+			// aapt resource value: 0x7f05000b
+			public const int bottone = 2131034123;
+			
 			// aapt resource value: 0x7f050001
 			public const int cocktailImageView = 2131034113;
 			
-			// aapt resource value: 0x7f05000b
-			public const int cocktailListView = 2131034123;
+			// aapt resource value: 0x7f05000c
+			public const int cocktailListView = 2131034124;
 			
 			// aapt resource value: 0x7f050008
 			public const int cocktailNameTextView = 2131034120;
@@ -84,8 +87,8 @@ namespace RealCocktails.Droid
 			// aapt resource value: 0x7f050000
 			public const int mainScrollView = 2131034112;
 			
-			// aapt resource value: 0x7f05000c
-			public const int menuButton = 2131034124;
+			// aapt resource value: 0x7f05000d
+			public const int menuButton = 2131034125;
 			
 			// aapt resource value: 0x7f050002
 			public const int nametextView = 2131034114;
@@ -125,10 +128,13 @@ namespace RealCocktails.Droid
 			public const int CocktailsMenuView = 2130903042;
 			
 			// aapt resource value: 0x7f030003
-			public const int FavoriteCocktailFragment = 2130903043;
+			public const int Custom = 2130903043;
 			
 			// aapt resource value: 0x7f030004
-			public const int MenuView = 2130903044;
+			public const int FavoriteCocktailFragment = 2130903044;
+			
+			// aapt resource value: 0x7f030005
+			public const int MenuView = 2130903045;
 			
 			static Layout()
 			{

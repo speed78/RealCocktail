@@ -3,9 +3,11 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <Button
+  <Button
         android:id="@+id/menuButton"
         android:layout_width="match_parent"
         android:text="Guarda l'elenco"
         android:layout_height="wrap_content" />
+  <include layout="@layout/Custom" />
+
 </LinearLayout>
